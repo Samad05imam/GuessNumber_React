@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './App.css';
+
 
 function App() {
   const [minRange, setMinRange] = useState('');
@@ -41,6 +43,12 @@ function App() {
     }
 
     setAttempts(prev => prev + 1);
+    
+    if(userGuess<minRange || userGuess>maxRange){
+      setFeedback("Enter number between the range !")
+      alert("Number belong netween the range !!")
+      return;
+    }
 
     if (userGuess === targetNumber) {
       setFeedback(`Correct! You guessed it right 🎉 `);
@@ -54,28 +62,30 @@ function App() {
   };
 
   return (
+    <>
     <div className='body bg-blue-950 w-screen flex flex-col items-center justify-center h-screen'>
-      <h1 className='text-3xl p-4 text-white font-sans'>Guess the Number</h1>
+      <h1 className='text-3xl p-4 text-white title font-sans'>Guess the Number</h1>
       <div className="container bg-blue-900 p-4 w-120 h-1/2 border-white rounded-md border-2">
         <form onSubmit={handleRangeSubmit} className="range">
-          <h2 className='text-xl mb-3 text-white'>Select the range you want to play between:</h2>
-          <div className='range flex justify-start gap-10 items-center'>
+          <h2 className='text-xl title-basic mb-3 text-white'>Select the range you want to play between:</h2>
+          <div className='range-div flex justify-start gap-10 items-center'>
+            
             <input
-              className='bg-white text-xl border-black mb-3 border-2 w-36 p-2 rounded-md'
+              className='bg-white name text-xl border-black mb-3 border-2 w-36 p-2 rounded-md'
               type="number"
               placeholder="Min"
               value={minRange}
               onChange={(e) => setMinRange(e.target.value)}
             />
             <input
-              className='bg-white text-xl border-black mb-3 border-2 w-36 p-2 rounded-md'
+              className='bg-white name text-xl border-black mb-3 border-2 w-36 p-2 rounded-md'
               type="number"
               placeholder="Max"
               value={maxRange}
               onChange={(e) => setMaxRange(e.target.value)}
             />
             <button
-              className='bg-white rounded-lg font-bold text-blue-800 mb-3 p-2'
+              className='bg-white name rounded-lg font-bold text-blue-800 mb-3 p-2'
               type="submit"
             >
               Submit
@@ -84,16 +94,16 @@ function App() {
         </form>
 
         {targetNumber !== null && (
-          <form onSubmit={handleGuessSubmit}>
+          <form  className="inputs" onSubmit={handleGuessSubmit}>
             <input
-              className='bg-white text-xl border-black border-2 w-full p-3 rounded-md'
+              className='bg-white guess-blank text-xl border-black border-2 w-full p-3 rounded-md'
               type="number"
               placeholder="Enter your guess"
               value={guess}
               onChange={(e) => setGuess(e.target.value)}
             />
             <button
-              className='bg-white rounded-lg font-bold text-blue-800 mt-3 p-2'
+              className='bg-white guess-submit rounded-lg font-bold text-blue-800 mt-3 p-2'
               type="submit"
             >
               Guess
@@ -110,6 +120,7 @@ function App() {
       © 2025 Samad Imam
     </footer>
     </div>
+    </>
   );
 }
 

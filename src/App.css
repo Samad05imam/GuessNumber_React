@@ -1,43 +1,121 @@
 @import "tailwindcss";
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+/* Mobile Styles */
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) and (min-width: 500px) {
+  .container {
+    width: 95vw;
+
   }
-  to {
-    transform: rotate(360deg);
+  .range-div{
+    display: flex;
+    justify-content: space-between;
+  }
+  .title-basic{
+    font-size: large;
+  }
+  .name{
+    width: 18vh;
   }
 }
+@media (max-width: 499px) and (min-width: 349px) {
+  .container {
+    width: 95%;
+    height: 50vh;
+  }
+  .content>.attempt , .content>.feedback{
+    font-size: large;
+  }
+  .title-basic{
+    font-size: medium;
+  }
+  .range-div{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .name{
+    width: 12vh;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 348px){ 
+  .container {
+    width: 95%;
+    height: 60vh;
+  }
+  
+  .content>.attempt , .content>.feedback{
+    font-size: medium;
+  }
+  .title-basic{
+    font-size: medium;
+  }
+  .range-div{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .name , .guess-submit{
+    width: 12vh;
+    font-size: 3vw;
+  }
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+  .guess-blank{
+    width:83vw;
+    font-size:4vw;
+    height: 6vh;
+    display: flex;
+    justify-content: stretch;
+  }
+}
+/* Tablet Styles */
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    width: 95%;
+    height: 60vh;
+  }
+  
+  .content>.attempt , .content>.feedback{
+    font-size: x-large;
+  }
+  .title-basic{
+    font-size: x-large;
+  }
+  .range-div{
+    /* width: 90%; */
+    display: flex;
+    justify-content: space-between;
+  }
+  .name , .guess-submit{
+    width: 20vh;
+    font-size: 4vw;
+  }
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+  .guess-blank{
+    width:100%;
+    font-size:5vw;
+    height: 10vh;
+    display: flex;
+    justify-content: stretch;
   }
 }
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
+/* Desktop Styles */
+
+/* @media (min-width: 901px) {
+  .body {
+    background-color: white;
+  }
 } */
